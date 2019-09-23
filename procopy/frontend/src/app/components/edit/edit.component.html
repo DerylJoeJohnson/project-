@@ -1,0 +1,45 @@
+<div>
+  <br>
+  <mat-card>
+    <section class="mat-typography">
+      <h3>Update Employee</h3>
+    </section>
+    <mat-divider></mat-divider>
+    <br>
+    <form [formGroup]="updateForm" class="edit-form">
+      <mat-form-field class="field-full-width">
+        <input matInput placeholder="Employee Name" formControlName="title" #title>
+      </mat-form-field>
+      <mat-form-field class="field-full-width">
+        <input matInput placeholder="Designation" formControlName="responsible" #responsible>
+      </mat-form-field>
+      <mat-form-field class="field-full-width">
+          <input matInput placeholder="age" formControlName="age" #age>
+        </mat-form-field>
+        <mat-form-field class="field-full-width">
+            <input matInput placeholder="salary" formControlName="salary" #salary>
+          </mat-form-field>
+      <mat-form-field class="field-full-width">
+        <textarea matInput placeholder="Description" formControlName="description" #description></textarea>
+      </mat-form-field>
+      <mat-form-field>
+          <mat-select placeholder="Gender" formControlName="severity" #severity>
+            <mat-option value="Male">Male</mat-option>
+            <mat-option value="Female">Female</mat-option>
+            <mat-option value="Others">Others</mat-option>
+          </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-select placeholder="Current Project Status" formControlName="status" #status>
+          <mat-option value="Open">None</mat-option>
+          <mat-option value="In Progress">In Progress</mat-option>
+          <mat-option value="Done">Completed</mat-option>
+        </mat-select>
+    </mat-form-field>
+      <mat-divider></mat-divider>
+      <br><br>
+      <button mat-raised-button color="accent" routerLink="/list">Back</button>&nbsp;
+      <button type="submit" (click)="updateemp(title.value, responsible.value, description.value,age.value, salary.value,severity.value, status.value)" [disabled]="updateForm.pristine || updateForm.invalid" mat-raised-button color="primary">Save</button>
+    </form>
+  </mat-card>
+</div>
